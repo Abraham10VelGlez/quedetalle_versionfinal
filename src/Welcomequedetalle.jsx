@@ -61,14 +61,7 @@ export default function Welcome() {
                             <Theme colorScheme='teal'
                                
                             >Theme</Theme>
-                            <Button
-                                isLoading
-                                loadingText='Changing'
-                                colorScheme='teal'
-                                variant='outline'
-                            >
-                                Theme &nbsp; <i className="pi pi-sun"></i>
-                            </Button>
+                          
                             <Button colorScheme='teal'>Carrito &nbsp; <i className="pi pi-shopping-bag"></i></Button>
                         </ButtonGroup>
                     </Flex>

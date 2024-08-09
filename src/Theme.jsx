@@ -1,31 +1,38 @@
 import React, { useState, useEffect } from "react";
-import { Button } from '@chakra-ui/react'
+import { Button, Spinner } from '@chakra-ui/react'
 export default function Theme({ checked, onChange }) {
 
-    const [themeChecked, setThemeChecked] = useState(false);
+    const [themeChecked, setThemeChecked] = useState(checked || false);
+    const [n, setn] = useState(false)
 
-    const btnclimax = () => {
+    useEffect(() => {
+        //console.log(themeChecked);
 
-        if (themeChecked) {
-            console.log("activado");
-            document.body.className = themeChecked ? 'night-mode' : 'day-mode';
-            setThemeChecked(false)
-        } else {
-            console.log("activado");
-            document.body.className = themeChecked ? 'night-mode' : 'day-mode';
-            setThemeChecked(true)
+
+
+        new Promise(resolve => {
+            setTimeout(() => {
+                setn(false)
+                document.body.className = themeChecked ? 'night-mode' : 'day-mode';
+            }, 400);
+        });
+        if (onChange) {
+            onChange(themeChecked);
 
         }
 
-    }
+    }, [themeChecked, onChange]);
+
+    const toggleTheme = () => {
+        setThemeChecked(prevTheme => !prevTheme);
+        setn(true)
+    };
 
     return (
 
-        <Button colorScheme='teal'
-            onClick={btnclimax}
-        >
+        <Button colorScheme='teal' onClick={toggleTheme} isLoading={n} spinner={<Spinner />} loadingText='Changing' >
             Theme &nbsp;
-            { themeChecked ? <i className="pi pi-sun"></i> : <i className="pi pi-moon"></i> }
+            {themeChecked ? <i className="pi pi-sun"></i> : <i className="pi pi-moon"></i>}
         </Button>
 
     );
