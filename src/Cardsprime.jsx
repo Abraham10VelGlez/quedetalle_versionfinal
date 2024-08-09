@@ -5,7 +5,7 @@ import Cardprime_optimo from './Cardsprime_render';
 import { SimpleGrid, Box } from '@chakra-ui/react'
 import Catalogo from './Catalogo';
 export default function Cardsprime() {
-    const {imgjson} = Catalogo()
+    const { imgjson } = Catalogo()
 
     return (
         <>
@@ -19,12 +19,14 @@ export default function Cardsprime() {
 
             {/*</Grid>*/}
             <center>
-                <SimpleGrid  columns={{ base: 1, md: 2, lg: 3 }} gap={4} spacingX='40px' spacingY='20px'>
-                    {imgjson.map((product, index) => (
-                        <GridItem key={index}   >
-                            <Cardprime_optimo key={index} objt={product} />
-                        </GridItem>
-                    ))}
+                <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap={4} spacingX='40px' spacingY='20px'>
+                    {imgjson
+                        .sort(() => Math.random() - 0.5) // Mezcla aleatoriamente el array
+                        .map((product, index) => (
+                            <GridItem key={index}>
+                                <Cardprime_optimo key={index} objt={product} />
+                            </GridItem>
+                        ))}
                 </SimpleGrid>
             </center>
 

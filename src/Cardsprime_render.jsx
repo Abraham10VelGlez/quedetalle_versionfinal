@@ -5,7 +5,7 @@ import { Card, CardHeader, Center, CardBody, CardFooter, useBreakpointValue } fr
 export default function Cardprime_optimo({ objt }) {
 
 
-    const { title, subtitle, description, urlimg } = objt
+    const { title, subtitle, description, urlimg, categ } = objt
     //ajustes de card
     const cardWidth = useBreakpointValue({ base: '100%', xs: '10%', sm: '95%', md: '95%'/*, lg: '50%'*/ });
     //ajustes de image
@@ -27,25 +27,25 @@ export default function Cardprime_optimo({ objt }) {
 
             boxShadow="lg"
 
-            
+
         >
             <Image
                 objectFit='cover'
                 width={imgsixewidth}
                 height={imgsixeheigth}
-                src={urlimg}
+                src={categ + '/' + urlimg}
                 alt='quedetalle'
             />
 
-            <Stack className="meniavg">
+            <Stack >
                 <CardBody  >
-                    
-                        <Heading textTransform='uppercase' fontSize='2xl'>{title}</Heading>
-                        
-                        <Text py='3' fontSize={textfontsizeavg}>
-                            {description} jasdkjashdjkas djhas dhjas dhjas dhas <br></br>dhjas dhas dhjas djh asdhj
-                        </Text>
-                    
+
+                    <Heading textTransform='uppercase' fontSize='2xl'>{title}</Heading>
+
+                    <Text py='3' fontSize={textfontsizeavg}>
+                        {description} jasdkjashdjkas djhas dhjas dhjas dhas <br></br>dhjas dhas dhjas djh asdhj
+                    </Text>
+
 
 
                 </CardBody>
