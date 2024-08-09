@@ -3,7 +3,7 @@ import { Image, useDisclosure, Button, Heading, Stack, Text, Grid, GridItem, Mod
 import { Card, CardHeader, Center, CardBody, CardFooter, useBreakpointValue } from '@chakra-ui/react'
 import Add from './Add';
 
-export default function Cardprime_optimo({ objt }) {
+export default function Cardprime_optimotbl({ objt }) {
     const { adds, add_product, addbuy } = Add()
 
 
@@ -40,34 +40,7 @@ export default function Cardprime_optimo({ objt }) {
                 height={imgsixeheigth}
                 src={categ + '/' + urlimg}
                 alt='quedetalle'
-            />
-
-            <Stack className="cardiavg">
-                <CardBody  >
-
-                    <Heading textTransform='uppercase' fontSize='2xl'>{title}</Heading>
-
-                    <Text py='3' fontSize={textfontsizeavg}>
-                        {description} jasdkjashdjkas djhas dhjas dhjas dhas <br></br>dhjas dhas dhjas djh asdhj
-                    </Text>
-
-
-
-                </CardBody>
-                <CardFooter>
-                    <Center>
-                        <Button isLoading={adds} onClick={() => add_product({ id, categ })} variant='solid' colorScheme='teal'>
-                            Agregar al Carrito &nbsp;
-                            <i className="pi pi-cart-arrow-down"></i>
-                        </Button>
-                    </Center>
-                </CardFooter>
-            </Stack>
-
-            
-                {/*addbuy.map((product, index) => (
-                    <li key={index}>{`ID: ${product.id}, Category: ${product.categ}`}</li>
-                ))*/}
+            />           
             
         </Card>
 

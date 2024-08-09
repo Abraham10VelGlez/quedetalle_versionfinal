@@ -1,7 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import Cardprime_optimo from './Cardsprime_render';
 import { SimpleGrid, GridItem } from '@chakra-ui/react'
+
+import {
+    Table,
+    Thead,
+    Tbody,
+    Tfoot,
+    Tr,
+    Th,
+    Td,
+    TableCaption,
+    TableContainer,
+} from '@chakra-ui/react'
 import Catalogo from './Catalogo';
+import Cardprime_optimotbl from './Cardprime_optimotbl';
 export default function Basket() {
 
     const { imgjson } = Catalogo()
@@ -39,7 +51,7 @@ export default function Basket() {
     return (
         <>
             <br></br>
-            <center>
+            {/*<center>
                 <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap={4} spacingX='40px' spacingY='20px'>
                     {filteredData.map((item, index) => (
                         <GridItem key={index}>
@@ -47,7 +59,40 @@ export default function Basket() {
                         </GridItem>
                     ))}
                 </SimpleGrid>
-            </center>
+            </center>*/}
+            <TableContainer>
+                <Table variant='striped' colorScheme='teal'>
+                    <TableCaption>Facturación Quedetalle</TableCaption>
+                    <Thead>
+                        <Tr>
+                            <Th>Producto</Th>
+                            <Th>Precio</Th>
+                            <Th isNumeric>Cantidad</Th>
+                            <Th isNumeric>Total</Th>
+                        </Tr>
+                    </Thead>
+                    <Tbody>
+
+                        {filteredData.map((item, index) => (
+                            <Tr key={index}>
+                                <Td><Cardprime_optimotbl key={index} objt={item} /></Td>
+                                <Td>millimetres (mm)</Td>
+                                <Td isNumeric>25.4</Td>
+                                <Td isNumeric>25.4</Td>
+                            </Tr>
+                        ))}
+
+                    </Tbody>
+                    <Tfoot>
+                        <Tr>
+                            <Th>Q</Th>
+                            <Th>Q</Th>
+                            <Th>Q</Th>
+                            <Th>Q</Th>
+                        </Tr>
+                    </Tfoot>
+                </Table>
+            </TableContainer>
 
         </>
     )
