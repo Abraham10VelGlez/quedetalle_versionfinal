@@ -18,12 +18,12 @@ const colors = {
 const theme = extendTheme({ colors })
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode >
+  <>
     {/* AQUI IMPORTAMOS EL BrowserRouter PARA PODER TENER ENVUELTA TODA LA APLICCACION SOBRE ESTA LIBRERIA PARA USARLA CON LAS RUTAS QUE YA TENEMOS */}
     <BrowserRouter>
       <ChakraProvider theme={theme}>
         <App />
       </ChakraProvider>
     </BrowserRouter>
-  </React.StrictMode>
+  </>
 )

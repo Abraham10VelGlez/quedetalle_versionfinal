@@ -11,10 +11,11 @@ import { Flex, Box, Spacer, ButtonGroup, Heading, Button, Link } from '@chakra-u
 import Combo from './Combo';
 import Theme from './Theme';
 import { useNavigate } from 'react-router-dom';
-import Floatmenucar from './Floatmenucar';
-export default function Welcome() {
+import Basket from './Basket';
+export default function Byubasket() {
+
     const navigate = useNavigate();
-    const linkpark = () => { navigate('/cotizavg') }
+    const linkpark = () => { navigate('/me') }
 
     return (
         <>
@@ -55,28 +56,19 @@ export default function Welcome() {
                             <Floatmenu />
                         </ButtonGroup>
                         <Spacer />
-                        <ButtonGroup gap='2' p='2'>
+                        <ButtonGroup gap='2' p='3'>
                             <Theme colorScheme='teal'
+
                             >Theme</Theme>
-                            
-                            <Floatmenucar></Floatmenucar>
-                            
+
                         </ButtonGroup>
                     </Flex>
 
 
                 </GridItem>
-                {/*<GridItem pl='2' className="meniavg" color='black' area={'nav'} >
-
-                    <br></br>
-                    <Combo></Combo>
-
-
-
-
-                </GridItem>*/}
+               
                 <GridItem pl='2' bg='white.100' area={'main'}>
-                    <Cardsprime />
+                    <Basket></Basket>
                 </GridItem>
                 <GridItem pl='2' bg='white.100' area={'footer'}>
                     <center>
@@ -85,20 +77,7 @@ export default function Welcome() {
 
                 </GridItem>
             </Grid>
-            {/* MENU */}
-            {/* SLIDER */}
-            {/* CONTENIDO */}
-            {/* FOOTER*/}
-            {/*<MenubarPrime ></MenubarPrime ><br />
-      <br />
-      <Logo></Logo>
-      <br />
-     <CarruselPrime />
-      <br />
-      
-      <br />
-      <br />
-      <Footer />*/}
+
 
 
 

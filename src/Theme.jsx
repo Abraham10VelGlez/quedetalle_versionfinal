@@ -7,15 +7,10 @@ export default function Theme({ checked, onChange }) {
 
     useEffect(() => {
         //console.log(themeChecked);
-
-
-
-        new Promise(resolve => {
-            setTimeout(() => {
-                setn(false)
-                document.body.className = themeChecked ? 'night-mode' : 'day-mode';
-            }, 400);
-        });
+        setTimeout(() => {
+            setn(false)
+            document.body.className = themeChecked ? 'night-mode' : 'day-mode';
+        }, 400);
         if (onChange) {
             onChange(themeChecked);
 
@@ -31,7 +26,7 @@ export default function Theme({ checked, onChange }) {
     return (
 
         <Button colorScheme='teal' onClick={toggleTheme} isLoading={n} spinner={<Spinner />} loadingText='Transition' >
-            
+
             {themeChecked ? <i className="pi pi-sun"></i> : <i className="pi pi-moon"></i>}
         </Button>
 

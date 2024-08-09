@@ -3,13 +3,14 @@ import { Routes, Route, useNavigate, Link } from 'react-router-dom';
 import Welcome from './Welcomequedetalle';
 import Boxs from './Boxs';
 import CarruselPrime from './Caruselprime';
+import Byubasket from './Buybasket';
 export default function Navigatetalle() {
 
     return (
         /*<Router>*/
         <Routes>
             <Route path="/" index element={<Welcome/>} />
-            <Route path="/me" element={<About />} />
+            <Route path="/cotizavg" element={<Byubasket />} />
             <Route path="/QueDetalleBox" element={<Boxs />} />
             {/* comodin para dar por defecto la pagina que no sirve */}
             <Route path="*" element={<NotFound />} />

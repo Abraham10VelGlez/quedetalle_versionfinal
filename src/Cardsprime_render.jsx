@@ -1,11 +1,13 @@
 import React from 'react';
 import { Image, useDisclosure, Button, Heading, Stack, Text, Grid, GridItem, ModalHeader, ModalCloseButton, ModalBody, ModalFooter } from '@chakra-ui/react';
 import { Card, CardHeader, Center, CardBody, CardFooter, useBreakpointValue } from '@chakra-ui/react'
+import Add from './Add';
 
 export default function Cardprime_optimo({ objt }) {
+    const { adds, add_product, addbuy } = Add()
 
 
-    const { title, subtitle, description, urlimg, categ } = objt
+    const { id, title, subtitle, description, urlimg, categ } = objt
     //ajustes de card
     const cardWidth = useBreakpointValue({ base: '100%', xs: '10%', sm: '95%', md: '95%'/*, lg: '50%'*/ });
     //ajustes de image
@@ -13,6 +15,9 @@ export default function Cardprime_optimo({ objt }) {
     const imgsixeheigth = useBreakpointValue({ base: '100%', xs: '300px', sm: '300px', md: '300px', lg: '280px' });
 
     const textfontsizeavg = useBreakpointValue({ base: '1xl', sm: '1xl', md: '1xl', lg: '1xl' });
+
+    //console.log(addbuy);
+
 
     return (
 
@@ -37,7 +42,7 @@ export default function Cardprime_optimo({ objt }) {
                 alt='quedetalle'
             />
 
-            <Stack >
+            <Stack className="cardiavg">
                 <CardBody  >
 
                     <Heading textTransform='uppercase' fontSize='2xl'>{title}</Heading>
@@ -51,14 +56,23 @@ export default function Cardprime_optimo({ objt }) {
                 </CardBody>
                 <CardFooter>
                     <Center>
-                        <Button variant='solid' colorScheme='teal'>
+                        <Button isLoading={adds} onClick={() => add_product({ id, categ })} variant='solid' colorScheme='teal'>
                             Agregar al Carrito &nbsp;
                             <i className="pi pi-cart-arrow-down"></i>
                         </Button>
                     </Center>
                 </CardFooter>
             </Stack>
+
+            <ul>
+                {addbuy.map((product, index) => (
+                    <li key={index}>{`ID: ${product.id}, Category: ${product.categ}`}</li>
+                ))}
+            </ul>
         </Card>
+
+
+
 
 
 
