@@ -75,24 +75,24 @@ export default function Basket() {
 
                         {filteredData.map((item, index) => (
                             <Tr key={index}>
-                                <Td><Cardprime_optimotbl key={index} objt={item} /></Td>
-                                <Td>millimetres (mm)</Td>
-                                <Td isNumeric>25.4</Td>
-                                <Td isNumeric>25.4</Td>
+                                <Td><Cardprime_optimotbl key={index} objt={item} />{item.title}</Td>
+                                <Td isNumeric>$10.0{item.subtitle}</Td>
+                                <Td isNumeric>1</Td>
+                                <Td isNumeric>$10.0</Td>
                             </Tr>
                         ))}
 
-                    </Tbody>
-                    <Tfoot>
-                        <Tr>
-                            <Th>Q</Th>
-                            <Th>Q</Th>
-                            <Th>Q</Th>
-                            <Th>Q</Th>
-                        </Tr>
-                    </Tfoot>
-                </Table>
-            </TableContainer>
+                </Tbody>
+                <Tfoot>
+                    <Tr>
+                        <Th>Q</Th>
+                        <Th>Q</Th>
+                        <Th>Q</Th>
+                        <Th>Q</Th>
+                    </Tr>
+                </Tfoot>
+            </Table>
+        </TableContainer >
 
         </>
     )
