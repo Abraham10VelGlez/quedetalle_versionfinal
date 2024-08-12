@@ -62,10 +62,12 @@ export default function Basket() {
                         </GridItem>
                     ))}
                 </SimpleGrid>
-            </center>*/}
+            </center>*/
+            //Facturación Quedetalle
+            }
             <TableContainer>
                 <Table variant='striped' colorScheme='teal'>
-                    <TableCaption>Facturación Quedetalle</TableCaption>
+                    <TableCaption>Total de articulos {quantity}</TableCaption>
                     <Thead>
                         <Tr>
                             <Th>Producto</Th>
@@ -90,15 +92,7 @@ export default function Basket() {
                             </Tr>
                         ))}
 
-                    </Tbody>
-                    <Tfoot>
-                        <Tr>
-                            <Th>Q</Th>
-                            <Th>Q</Th>
-                            <Th>Q</Th>
-                            <Th>Q</Th>
-                        </Tr>
-                    </Tfoot>
+                    </Tbody>                    
                 </Table>
             </TableContainer >
 
