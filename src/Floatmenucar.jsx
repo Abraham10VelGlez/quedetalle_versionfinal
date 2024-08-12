@@ -32,9 +32,9 @@ export default function Floatmenucar() {
 
   //muestra el numeor de elementos seleeccionados
   //console.log(cart);
-  
-  
-  
+
+
+
 
 
 
@@ -55,8 +55,10 @@ export default function Floatmenucar() {
         <DrawerContent>
           <DrawerCloseButton />
           <DrawerHeader borderBottomWidth='1px'>
-            Carrito de compras {quantity}
+            Carrito de compras
+            {/* Carrito de compras {quantity}
             Total de la compra {totalcosto}
+            */}
           </DrawerHeader>
 
           <DrawerBody>

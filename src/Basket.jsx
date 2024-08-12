@@ -63,11 +63,11 @@ export default function Basket() {
                     ))}
                 </SimpleGrid>
             </center>*/
-            //Facturación Quedetalle
+                //Facturación Quedetalle
             }
             <TableContainer>
                 <Table variant='striped' colorScheme='teal'>
-                    <TableCaption>Total de articulos {quantity}</TableCaption>
+                    <TableCaption>Resumen del Pedido</TableCaption>
                     <Thead>
                         <Tr>
                             <Th>Producto</Th>
@@ -88,11 +88,46 @@ export default function Basket() {
                                 </Td>
                                 <Td isNumeric>${item.subtitle}</Td>
                                 <Td isNumeric>{item.quantity}</Td>
-                                <Td isNumeric>$10.0</Td>
+                                <Td isNumeric>${item.subtitle * item.quantity}</Td>
                             </Tr>
                         ))}
 
-                    </Tbody>                    
+                    </Tbody>
+
+                </Table>
+            </TableContainer >
+
+
+
+
+            <TableContainer>
+                <Table variant='striped' colorScheme='teal'>
+
+                    <Thead>
+                        <Tr>
+                            <Th>Total de Productos {quantity}</Th>
+                            <Th></Th>
+                            <Th></Th>
+                            <Th></Th>
+                        </Tr>
+                    </Thead>
+                    <Tbody>
+
+                    </Tbody>
+                    <Tfoot>
+                        <Tr>
+                            <Th>Envío (Toluca)</Th>
+                            <Th></Th>
+                            <Th></Th>
+                            <Th isNumeric>$99</Th>
+                        </Tr>
+                        <Tr>
+                            <Th><b>Total *</b></Th>
+                            <Th></Th>
+                            <Th></Th>
+                            <Th isNumeric>${totalcosto}</Th>
+                        </Tr>
+                    </Tfoot>
                 </Table>
             </TableContainer >
 
