@@ -21,7 +21,7 @@ export default function Floatmenucar() {
   const firstField = React.useRef();
   //const sizes = ['xs', 'sm', 'md', 'lg', 'xl', 'full']
   const sizes = ['xs', 'sm', 'md', 'lg', 'xl'];
-  const { quantity, cart, setCart } = Add();
+  const { quantity, cart, setCart, totalcosto } = Add();
 
   ///llamar a mo context para que veamos cuantos prdoctos agregue, es acceso directo
   /*const [cart, setCart] = useContext(CartContext)
@@ -29,6 +29,12 @@ export default function Floatmenucar() {
   const quantity = cart.reduce((acumulador,elementoactual,)=>{
     return acumulador + elementoactual.quantity;
   },0)*/
+
+  //muestra el numeor de elementos seleeccionados
+  //console.log(cart);
+  
+  
+  
 
 
 
@@ -50,6 +56,7 @@ export default function Floatmenucar() {
           <DrawerCloseButton />
           <DrawerHeader borderBottomWidth='1px'>
             Carrito de compras {quantity}
+            Total de la compra {totalcosto}
           </DrawerHeader>
 
           <DrawerBody>

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Image, useDisclosure, Button, Heading, Stack, Text, Grid, GridItem, ModalHeader, ModalCloseButton, ModalBody, ModalFooter } from '@chakra-ui/react';
 import { Card, CardHeader, Center, CardBody, CardFooter, useBreakpointValue } from '@chakra-ui/react'
 import Add from './Add';
@@ -8,7 +8,7 @@ import { CartContext } from './context/ShoppingCartContext';
 //export default function Cardprime_optimo({ objt }) {
 //const { id, title, subtitle, description, urlimg, categ } = objt
 export default function Cardprime_optimo({ id, title, subtitle, description, urlimg, categ }) {
-    const { adds, add_product, addbuy, addToCart, removeItem } = Add()
+    const { adds, add_product, addbuy, addToCart, removeItem, views_product } = Add()
 
 
     ///llamar a mo context para que veamos cuantos prdoctos agregue, es acceso directo
@@ -33,6 +33,13 @@ export default function Cardprime_optimo({ id, title, subtitle, description, url
     const textfontsizeavg = useBreakpointValue({ base: '1xl', sm: '1xl', md: '1xl', lg: '1xl' });
 
     //console.log(addbuy);
+
+
+
+    
+
+
+
 
 
     return (

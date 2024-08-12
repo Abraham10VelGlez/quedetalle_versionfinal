@@ -27,13 +27,13 @@ export default function Add() {
                 });
             } else {
                 // si es la primera ves se agrega al carrito
-                return [...currItems, { id, quantity: 1, subtitle }];
+                return [...currItems, { id, quantity: 1, subtitle, title, urlimg, categ }];
             }
         });
     };
 
     //funcion poara quitar productos
-    const removeItem = () => {
+    const removeItem = (id) => {
         setCart((currItems) => {
             // buscar el prodcuto en el carrito, si es id es igual al parametro
             if (currItems.find((item) => item.id === id)?.quantity === 1) {
@@ -59,13 +59,42 @@ export default function Add() {
     ///llamar a mo context para que veamos cuantos prdoctos agregue, es acceso directo
     //const [cart, setCart] = useContext(CartContext)
 
-    const quantity = cart.reduce((acumulador, elementoactual,) => {
+    const quantity = cart.reduce((acumulador, elementoactual) => {
         return acumulador + elementoactual.quantity;
     }, 0);
 
 
     //contar total de costo de productos selecccionados
-    const totalcosto = "aa";// cart.reduce()
+    const totalcosto = cart.reduce((acumulador, elementoactual) => {
+        // arranca en 0, acumulador + el objeto.valor de cantidad * objeto.valor del precio
+        return acumulador + elementoactual.quantity * elementoactual.subtitle
+    }, 0);
+
+
+
+    const views_product = ({ id, title, subtitle, description, urlimg, categ }) => {
+        setCart((currItems) => {
+            // verficar si se encunetra
+            const isItemsFound = currItems.find((item) => item.id === id);
+            console.log(isItemsFound);
+
+            if (isItemsFound) {
+                // se intera
+                return [...currItems, { id, title, subtitle, description, urlimg, categ }];
+            } else {
+                // si es la primera ves se agrega al carrito
+                return [...currItems, { id, title, subtitle, description, urlimg, categ }];
+            }
+        });
+    }
+
+
+
+
+
+
+
+
 
 
 
@@ -115,7 +144,7 @@ export default function Add() {
         addToCart,
         removeItem,
         quantity,
-        cart, setCart,totalcosto,
+        cart, setCart, totalcosto, views_product,
 
     }
 

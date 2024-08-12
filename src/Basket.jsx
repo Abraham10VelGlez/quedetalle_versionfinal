@@ -14,7 +14,10 @@ import {
 } from '@chakra-ui/react'
 import Catalogo from './Catalogo';
 import Cardprime_optimotbl from './Cardprime_optimotbl';
+import Add from './Add';
 export default function Basket() {
+
+    const { quantity, cart, setCart, totalcosto } = Add();
 
     const { imgjson } = Catalogo()
 
@@ -73,26 +76,31 @@ export default function Basket() {
                     </Thead>
                     <Tbody>
 
-                        {filteredData.map((item, index) => (
+                        {cart.map((item, index) => (
                             <Tr key={index}>
-                                <Td><Cardprime_optimotbl key={index} objt={item} />{item.title}</Td>
-                                <Td isNumeric>$10.0{item.subtitle}</Td>
-                                <Td isNumeric>1</Td>
+                                <Td>
+                                    <center>{item.title}
+                                        <Cardprime_optimotbl key={index} objt={item} />
+                                    </center>
+
+                                </Td>
+                                <Td isNumeric>${item.subtitle}</Td>
+                                <Td isNumeric>{item.quantity}</Td>
                                 <Td isNumeric>$10.0</Td>
                             </Tr>
                         ))}
 
-                </Tbody>
-                <Tfoot>
-                    <Tr>
-                        <Th>Q</Th>
-                        <Th>Q</Th>
-                        <Th>Q</Th>
-                        <Th>Q</Th>
-                    </Tr>
-                </Tfoot>
-            </Table>
-        </TableContainer >
+                    </Tbody>
+                    <Tfoot>
+                        <Tr>
+                            <Th>Q</Th>
+                            <Th>Q</Th>
+                            <Th>Q</Th>
+                            <Th>Q</Th>
+                        </Tr>
+                    </Tfoot>
+                </Table>
+            </TableContainer >
 
         </>
     )
