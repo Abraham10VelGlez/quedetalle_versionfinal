@@ -4,22 +4,25 @@ import Welcome from './Welcomequedetalle';
 import Boxs from './Boxs';
 import CarruselPrime from './Caruselprime';
 import Byubasket from './Buybasket';
+import { ShoppingCartProvider } from './context/ShoppingCartContext';
 export default function Navigatetalle() {
 
     return (
         /*<Router>*/
-        <Routes>
-            <Route path="/" index element={<Welcome/>} />
-            <Route path="/cotizavg" element={<Byubasket />} />
-            <Route path="/QueDetalleBox" element={<Boxs />} />
-            {/* comodin para dar por defecto la pagina que no sirve */}
-            <Route path="*" element={<NotFound />} />
-        </Routes>
+        <ShoppingCartProvider>
+            <Routes>
+                <Route path="/" index element={<Welcome />} />
+                <Route path="/cotizavg" element={<Byubasket />} />
+                <Route path="/QueDetalleBox" element={<Boxs />} />
+                {/* comodin para dar por defecto la pagina que no sirve */}
+                <Route path="*" element={<NotFound />} />
+            </Routes>
+        </ShoppingCartProvider>
         /*</Router>*/
     );
 }
 
-function Boxes(){
+function Boxes() {
     return <>asd</>
 }
 

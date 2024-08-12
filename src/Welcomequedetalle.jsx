@@ -79,6 +79,7 @@ export default function Welcome() {
                     <Cardsprime />
                 </GridItem>
                 <GridItem pl='2' bg='white.100' area={'footer'}>
+                    <br></br>
                     <center>
                         <Footer></Footer>
                     </center>

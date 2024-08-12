@@ -10,7 +10,7 @@ export default function Cardprime_optimotbl({ objt }) {
     const { id, title, subtitle, description, urlimg, categ } = objt
     //ajustes de card
     //const cardWidth = useBreakpointValue({ base: '100%', xs: '10%', sm: '95%', md: '95%'/*, lg: '50%'*/ });
-    const cardWidth = useBreakpointValue({ base: '100%', xs: '10%', sm: '95%', md: '95%',lg: '150px'/*, lg: '50%'*/ });
+    const cardWidth = useBreakpointValue({ base: '100%', xs: '10%', sm: '95%', md: '95%', lg: '150px'/*, lg: '50%'*/ });
     //ajustes de image
     const imgsixewidth = useBreakpointValue({ base: '100%', xs: '1xl', sm: '1xl', md: '1xl', lg: '150px' });
     const imgsixeheigth = useBreakpointValue({ base: '100%', xs: '1xl', sm: '1xl', md: '1xl', lg: '150px' });
@@ -47,8 +47,8 @@ export default function Cardprime_optimotbl({ objt }) {
                 alt='quedetalle'
             />
 
-           
-            
+
+
         </Card>
 
 

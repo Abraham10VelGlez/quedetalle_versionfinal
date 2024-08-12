@@ -7,22 +7,35 @@ import {
   DrawerContent,
   DrawerCloseButton,
 } from '@chakra-ui/react'
-import React from 'react';
+import React, { useContext } from 'react';
 import { useDisclosure, Button, RadioGroup, Stack, Box, FormLabel, Input, InputGroup, InputLeftAddon, InputRightAddon, Select, Textarea } from '@chakra-ui/react';
 import Combo from './Combo';
 import Basket from './Basket';
+import { CartContext } from './context/ShoppingCartContext';
+import Add from './Add';
 
 
 
 export default function Floatmenucar() {
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const firstField = React.useRef()
+  const firstField = React.useRef();
   //const sizes = ['xs', 'sm', 'md', 'lg', 'xl', 'full']
-  const sizes = ['xs', 'sm', 'md', 'lg', 'xl']
+  const sizes = ['xs', 'sm', 'md', 'lg', 'xl'];
+  const { quantity, cart, setCart } = Add();
+
+  ///llamar a mo context para que veamos cuantos prdoctos agregue, es acceso directo
+  /*const [cart, setCart] = useContext(CartContext)
+
+  const quantity = cart.reduce((acumulador,elementoactual,)=>{
+    return acumulador + elementoactual.quantity;
+  },0)*/
+
+
+
   return (
     <>
       <Button colorScheme='teal' onClick={onOpen}>
-        Carrito &nbsp;
+        Carrito {quantity} &nbsp;
         <i className="pi pi-shopping-bag"></i>
       </Button>
       <Drawer
@@ -36,7 +49,7 @@ export default function Floatmenucar() {
         <DrawerContent>
           <DrawerCloseButton />
           <DrawerHeader borderBottomWidth='1px'>
-            Carrito de compras
+            Carrito de compras {quantity}
           </DrawerHeader>
 
           <DrawerBody>

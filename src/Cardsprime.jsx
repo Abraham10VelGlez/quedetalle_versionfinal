@@ -24,7 +24,8 @@ export default function Cardsprime() {
                         .sort(() => Math.random() - 0.5) // Mezcla aleatoriamente el array
                         .map((product, index) => (
                             <GridItem key={index}>
-                                <Cardprime_optimo key={index} objt={product} />
+                                {/*<Cardprime_optimo key={index} objt={product} />*/}
+                                <Cardprime_optimo key={index} {...product} />
                             </GridItem>
                         ))}
                 </SimpleGrid>

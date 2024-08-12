@@ -1,13 +1,29 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Image, useDisclosure, Button, Heading, Stack, Text, Grid, GridItem, ModalHeader, ModalCloseButton, ModalBody, ModalFooter } from '@chakra-ui/react';
 import { Card, CardHeader, Center, CardBody, CardFooter, useBreakpointValue } from '@chakra-ui/react'
 import Add from './Add';
-
-export default function Cardprime_optimo({ objt }) {
-    const { adds, add_product, addbuy } = Add()
+import { CartContext } from './context/ShoppingCartContext';
 
 
-    const { id, title, subtitle, description, urlimg, categ } = objt
+//export default function Cardprime_optimo({ objt }) {
+//const { id, title, subtitle, description, urlimg, categ } = objt
+export default function Cardprime_optimo({ id, title, subtitle, description, urlimg, categ }) {
+    const { adds, add_product, addbuy, addToCart, removeItem } = Add()
+
+
+    ///llamar a mo context para que veamos cuantos prdoctos agregue, es acceso directo
+    const [cart, setCart] = useContext(CartContext)
+    // funcion para saber cuantos elementos fueron seleccionados por producto
+    const getquantityid = (id) => {
+        return cart.find((item) => item.id === id)?.quantity || 0;
+    }
+
+    //retorna la ccantidad de elementos seleccionados
+    const elemenselect = getquantityid(id);
+
+
+
+
     //ajustes de card
     const cardWidth = useBreakpointValue({ base: '100%', xs: '10%', sm: '95%', md: '95%'/*, lg: '50%'*/ });
     //ajustes de image
@@ -56,20 +72,56 @@ export default function Cardprime_optimo({ objt }) {
                 </CardBody>
                 <CardFooter>
                     <Center>
-                        <Button isLoading={adds} onClick={() => add_product({ id, categ })} variant='solid' colorScheme='teal'>
-                            Agregar al Carrito &nbsp;
-                            <i className="pi pi-cart-arrow-down"></i>
+                        {/*() => add_product({ id, title, subtitle, description, urlimg, categ })*/}
+                        <Button isLoading={adds} onClick={() => addToCart({ id, title, subtitle, description, urlimg, categ })} variant='solid' colorScheme='teal'>
+
+
+                            {
+                                elemenselect > 0
+                                    ? (
+                                        <>
+                                            {'Agregaste ' + elemenselect + ' al Carrito '}
+                                            <i className="pi pi-cart-arrow-down"></i>
+                                        </>
+                                    )
+                                    :
+                                    <>
+                                        {'Agregar al Carrito ' + ''}
+                                        <i className="pi pi-cart-arrow-down"></i>
+                                    </>
+                            }
+
                         </Button>
+
+
+
+                        {
+                            elemenselect > 0
+                                ? (
+
+                                    <Button isLoading={adds} onClick={() => removeItem(id)} variant='solid' colorScheme='red'>
+                                        {'Eliminar articulo'}
+                                        <i className="pi pi-cart-minus"></i>
+                                    </Button>
+
+                                )
+                                :
+                                <>
+
+                                </>
+                        }
+
+
                     </Center>
                 </CardFooter>
             </Stack>
 
-            
-                {/*addbuy.map((product, index) => (
+
+            {/*addbuy.map((product, index) => (
                     <li key={index}>{`ID: ${product.id}, Category: ${product.categ}`}</li>
                 ))*/}
-            
-        </Card>
+
+        </Card >
 
 
 
