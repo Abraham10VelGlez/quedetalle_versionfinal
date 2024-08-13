@@ -19,6 +19,7 @@ export default function Cardsprime() {
 
             {/*</Grid>*/}
             <center>
+                {/*<SimpleGrid columns={{ base: 1, md: 2, lg: 5 }} gap={4} spacingX='40px' spacingY='20px'> */}
                 <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap={4} spacingX='40px' spacingY='20px'>
                     {imgjson
                         .sort(() => Math.random() - 0.5) // Mezcla aleatoriamente el array

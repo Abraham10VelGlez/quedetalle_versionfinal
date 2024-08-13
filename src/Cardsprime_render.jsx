@@ -1,10 +1,15 @@
 import React, { useContext, useEffect } from 'react';
-import { Image, useDisclosure, Button, Heading, Stack, Text, Grid, GridItem, ModalHeader, ModalCloseButton, ModalBody, ModalFooter } from '@chakra-ui/react';
-import { Card, CardHeader, Center, CardBody, CardFooter, useBreakpointValue } from '@chakra-ui/react'
+import { Image, Divider, Button, Heading, Stack, Text, Grid, GridItem, ButtonGroup, ModalCloseButton, ModalBody, ModalFooter } from '@chakra-ui/react';
+import { Card, CardHeader, Center, CardBody, Box, useBreakpointValue } from '@chakra-ui/react'
 import Add from './Add';
 import { CartContext } from './context/ShoppingCartContext';
-
-
+import { Link } from '@chakra-ui/react'
+import {
+    Modal,
+    ModalOverlay,
+    useDisclosure
+} from '@chakra-ui/react'
+import Modalcha from './Modalcha';
 //export default function Cardprime_optimo({ objt }) {
 //const { id, title, subtitle, description, urlimg, categ } = objt
 export default function Cardprime_optimo({ id, title, subtitle, description, urlimg, categ }) {
@@ -36,78 +41,70 @@ export default function Cardprime_optimo({ id, title, subtitle, description, url
 
 
 
-    
-
-
-
-
 
     return (
 
-        <Card
-            direction={{ base: 'column', sm: 'row', md: 'row', lg: 'row' }}
-            overflow='hidden'
-            variant='outline'
-
-            width={cardWidth}
-            borderWidth="1px"
-            borderRadius="lg"
-
-            boxShadow="lg"
-
-
-        >
-            <Image
-                objectFit='cover'
-                width={imgsixewidth}
-                height={imgsixeheigth}
-                src={categ + '/' + urlimg}
-                alt='quedetalle'
-            />
-
-            <Stack className="cardiavg">
-                <CardBody  >
-
-                    <Heading textTransform='uppercase' fontSize='2xl'>{title}</Heading>
-
-                    <Text py='3' fontSize={textfontsizeavg}>
-                        {description} jasdkjashdjkas djhas dhjas dhjas dhas <br></br>dhjas dhas dhjas djh asdhj
-                    </Text>
+        <>
 
 
 
-                </CardBody>
-                <CardFooter>
-                    <Center>
-                        {/*() => add_product({ id, title, subtitle, description, urlimg, categ })*/}
-                        <Button isLoading={adds} onClick={() => addToCart({ id, title, subtitle, description, urlimg, categ })} variant='solid' colorScheme='teal'>
 
 
-                            {
-                                elemenselect > 0
-                                    ? (
+            <Card
+                direction={{ base: 'column', sm: 'row', md: 'row', lg: 'row' }}
+                overflow='hidden'
+                variant='outline'
+
+                width={cardWidth}
+                borderWidth="1px"
+                borderRadius="lg"
+
+                boxShadow="lg"
+
+
+            >
+                <Modalcha categ={categ} urlimg={urlimg}></Modalcha>
+
+                <Stack className="cardiavg">
+                    <CardBody  >
+
+                        <Heading textTransform='uppercase' fontSize='1xl'>{title}</Heading>
+
+                        <Text py='3' fontSize={textfontsizeavg}>
+                            {description} jasdkjashdjkas djhas dhjas dhjas dhas <br></br>dhjas dhas dhjas djh asdhj
+                        </Text>
+
+
+
+                        <Text mb={2}>
+                            {/*() => add_product({ id, title, subtitle, description, urlimg, categ })*/}
+                            <Button isLoading={adds} onClick={() => addToCart({ id, title, subtitle, description, urlimg, categ })} variant='solid' colorScheme='teal'>
+
+
+                                {
+                                    elemenselect > 0
+                                        ? (
+                                            <>
+                                                {'Agregaste ' + elemenselect + ' al Carrito '}
+                                                <i className="pi pi-cart-arrow-down"></i>
+                                            </>
+                                        )
+                                        :
                                         <>
-                                            {'Agregaste ' + elemenselect + ' al Carrito '}
+                                            {'Agregar al Carrito ' + ''}
                                             <i className="pi pi-cart-arrow-down"></i>
                                         </>
-                                    )
-                                    :
-                                    <>
-                                        {'Agregar al Carrito ' + ''}
-                                        <i className="pi pi-cart-arrow-down"></i>
-                                    </>
-                            }
+                                }
 
-                        </Button>
-
-
+                            </Button>
+                        </Text>
 
                         {
                             elemenselect > 0
                                 ? (
 
                                     <Button isLoading={adds} onClick={() => removeItem(id)} variant='solid' colorScheme='red'>
-                                        {'Eliminar articulo'}
+                                        {'Eliminar'}
                                         <i className="pi pi-cart-minus"></i>
                                     </Button>
 
@@ -119,20 +116,30 @@ export default function Cardprime_optimo({ id, title, subtitle, description, url
                         }
 
 
-                    </Center>
-                </CardFooter>
-            </Stack>
 
 
-            {/*addbuy.map((product, index) => (
+
+                    </CardBody>
+
+
+
+                </Stack>
+
+
+                {/*addbuy.map((product, index) => (
                     <li key={index}>{`ID: ${product.id}, Category: ${product.categ}`}</li>
                 ))*/}
 
-        </Card >
+            </Card >
 
 
 
 
+
+
+
+
+        </>
 
 
 

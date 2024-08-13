@@ -9,7 +9,7 @@ export default function Footer() {
 
     <div className="grid "  >
       <div className="col-12 ">
-        <Stack p='2' bg="pink.500">
+        <Stack p='2'className="meniavg" >
           <Text fontSize='xs'>Dirección Calle Chalco, Toluca, Mexico, 50040. Tel. 722 458 8273. Correo electrónico quedetalle3@gmail.com
             QueDetalle ©2024 Created by AbrahamVG / ChakraUI {/*cart*/}</Text>
         </Stack>

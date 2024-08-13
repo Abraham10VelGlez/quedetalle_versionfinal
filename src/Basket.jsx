@@ -10,14 +10,14 @@ import {
     Th,
     Td,
     TableCaption,
-    TableContainer,
+    TableContainer, Button,
 } from '@chakra-ui/react'
 import Catalogo from './Catalogo';
 import Cardprime_optimotbl from './Cardprime_optimotbl';
 import Add from './Add';
 export default function Basket() {
 
-    const { quantity, cart, setCart, totalcosto } = Add();
+    const { quantity, cart, setCart, totalcosto, removeItem } = Add();
 
     const { imgjson } = Catalogo()
 
@@ -46,7 +46,7 @@ export default function Basket() {
     };
 
     const filteredData = filterData(data, imgjson);
-    console.log(filteredData);
+    //console.log(filteredData);
 
 
 
@@ -66,13 +66,14 @@ export default function Basket() {
                 //Facturación Quedetalle
             }
             <TableContainer>
-                <Table variant='striped' colorScheme='teal'>
+                <Table variant='striped' colorScheme='teal' size='sm'>
                     <TableCaption>Resumen del Pedido</TableCaption>
                     <Thead>
                         <Tr>
-                            <Th>Producto</Th>
-                            <Th>Precio</Th>
-                            <Th isNumeric>Cantidad</Th>
+                            <Th><center>Cancelar</center></Th>
+                            <Th><center>Producto</center></Th>
+                            <Th><center>Precio</center></Th>
+                            <Th isNumeric><center>Cantidad</center></Th>
                             <Th isNumeric>Total</Th>
                         </Tr>
                     </Thead>
@@ -81,14 +82,34 @@ export default function Basket() {
                         {cart.map((item, index) => (
                             <Tr key={index}>
                                 <Td>
+                                    <center>
+                                        {
+                                            item.id > 0
+                                                ? (
+
+                                                    <Button onClick={() => removeItem(item.id)} variant='solid' colorScheme='red'>
+                                                        {'Eliminar'}
+                                                        <i className="pi pi-cart-minus"></i>
+                                                    </Button>
+
+                                                )
+                                                :
+                                                <>
+
+                                                </>
+                                        }
+                                    </center>
+
+                                </Td>
+                                <Td>
                                     <center>{item.title}
                                         <Cardprime_optimotbl key={index} objt={item} />
                                     </center>
 
                                 </Td>
-                                <Td isNumeric>${item.subtitle}</Td>
-                                <Td isNumeric>{item.quantity}</Td>
-                                <Td isNumeric>${item.subtitle * item.quantity}</Td>
+                                <Td isNumeric><center>${item.subtitle}</center></Td>
+                                <Td isNumeric><center>{item.quantity}</center></Td>
+                                <Td isNumeric><center>${item.subtitle * item.quantity}</center></Td>
                             </Tr>
                         ))}
 
@@ -108,7 +129,7 @@ export default function Basket() {
                             <Th>Total de Productos {quantity}</Th>
                             <Th></Th>
                             <Th></Th>
-                            <Th></Th>
+                            <Th isNumeric>${totalcosto}</Th>
                         </Tr>
                     </Thead>
                     <Tbody>
@@ -125,7 +146,7 @@ export default function Basket() {
                             <Th><b>Total *</b></Th>
                             <Th></Th>
                             <Th></Th>
-                            <Th isNumeric>${totalcosto}</Th>
+                            <Th isNumeric>${totalcosto + 99}</Th>
                         </Tr>
                     </Tfoot>
                 </Table>

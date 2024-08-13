@@ -58,9 +58,8 @@ export default function Welcome() {
                         <ButtonGroup gap='2' p='2'>
                             <Theme colorScheme='teal'
                             >Theme</Theme>
-                            
+
                             <Floatmenucar></Floatmenucar>
-                            
                         </ButtonGroup>
                     </Flex>
 
