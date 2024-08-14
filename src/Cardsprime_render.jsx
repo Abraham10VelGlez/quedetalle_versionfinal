@@ -12,7 +12,7 @@ import {
 import Modalcha from './Modalcha';
 //export default function Cardprime_optimo({ objt }) {
 //const { id, title, subtitle, description, urlimg, categ } = objt
-export default function Cardprime_optimo({ id, title, subtitle, description, urlimg, categ }) {
+export default function Cardprime_optimo({ id, title, subtitle, description, urlimg, categ, suburlmimg }) {
     const { adds, add_product, addbuy, addToCart, removeItem, views_product } = Add()
 
 
@@ -63,7 +63,8 @@ export default function Cardprime_optimo({ id, title, subtitle, description, url
 
 
             >
-                <Modalcha categ={categ} urlimg={urlimg}></Modalcha>
+                <Modalcha id={id} categ={categ} urlimg={urlimg} suburlmimg={suburlmimg}></Modalcha>
+                {/* categ={categ} urlimg={urlimg} suburlmimg={suburlmimg} */}
 
                 <Stack className="cardiavg">
                     <CardBody  >
@@ -78,7 +79,7 @@ export default function Cardprime_optimo({ id, title, subtitle, description, url
 
                         <Text mb={2}>
                             {/*() => add_product({ id, title, subtitle, description, urlimg, categ })*/}
-                            <Button isLoading={adds} onClick={() => addToCart({ id, title, subtitle, description, urlimg, categ })} variant='solid' colorScheme='teal'>
+                            <Button isLoading={adds} onClick={() => addToCart({ id, title, subtitle, description, urlimg, categ, suburlmimg })} variant='solid' colorScheme='teal'>
 
 
                                 {

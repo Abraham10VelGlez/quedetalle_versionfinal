@@ -1,16 +1,22 @@
 import React from 'react';
-import { useDisclosure, Link, Modal, Button, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter, Text } from '@chakra-ui/react';
+import { useDisclosure, Link, Modal, Button, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter, Box } from '@chakra-ui/react';
 import { Image, useBreakpointValue } from '@chakra-ui/react'
 import Galeria from './Galeria';
+import { Skeleton, SkeletonCircle, SkeletonText } from '@chakra-ui/react'
 
 
-export default function Modalcha({ categ, urlimg }) {
+export default function Modalcha({ id, categ, urlimg, suburlmimg }) {
+    //acceso al context
+    //console.log(id);
+
+
+    // categ, urlimg, suburlmimg
     const { isOpen, onOpen, onClose } = useDisclosure()
 
     //ajustes de card
     const cardWidth = useBreakpointValue({ base: '100%', xs: '10%', sm: '95%', md: '95%'/*, lg: '50%'*/ });
     //ajustes de image
-    const imgsixewidth = useBreakpointValue({ base: '100%', xs: '90px', sm: '90px', md: '140px', lg: '265px' });
+    const imgsixewidth = useBreakpointValue({ base: '100%', xs: '90px', sm: '450px', md: '140px', lg: '500px' });
     const imgsixeheigth = useBreakpointValue({ base: '100%', xs: '300px', sm: '300px', md: '300px', lg: '280px' });
 
     const textfontsizeavg = useBreakpointValue({ base: '1xl', sm: '1xl', md: '1xl', lg: '1xl' });
@@ -19,11 +25,13 @@ export default function Modalcha({ categ, urlimg }) {
 
     //const sizes_modal = ['xs', 'sm', 'md', 'lg', 'xl']
     const sizes_modal = ['xl']
+    ///const clikeo = () => { see_info(id), onOpen() }
 
 
     return (
+        //
         <>
-            <Link onClick={onOpen} >
+            <Link onClick={onOpen}>
                 <Image
                     objectFit='cover'
                     width={imgsixewidth}
@@ -32,7 +40,7 @@ export default function Modalcha({ categ, urlimg }) {
                     alt='quedetalle'
                 />
 
-            </Link>
+            </Link >
 
             <Modal blockScrollOnMount={false} isOpen={isOpen} onClose={onClose} size={sizes_modal}>
                 <ModalOverlay />
@@ -40,7 +48,16 @@ export default function Modalcha({ categ, urlimg }) {
                     <ModalHeader>Más Información</ModalHeader>
                     <ModalCloseButton />
                     <ModalBody>
-                        <Galeria></Galeria>
+                        <Box padding='6' boxShadow='lg' bg='white'>
+                            {/*<SkeletonCircle size='10' />
+                            <SkeletonText mt='4' noOfLines={4} spacing='4' skeletonHeight='2' />
+                            <Galeria></Galeria>
+                            */}
+                            <Galeria id={id}></Galeria>
+
+
+
+                        </Box>
 
                     </ModalBody>
 
@@ -54,5 +71,6 @@ export default function Modalcha({ categ, urlimg }) {
             </Modal>
 
         </>
+
     )
 }

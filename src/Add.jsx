@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { CartContext } from './context/ShoppingCartContext';
+import Catalogo from './Catalogo';
 export default function Add() {
 
     const [adds, setadds] = useState(false)
@@ -9,8 +10,12 @@ export default function Add() {
     //acceso al context
     const [cart, setCart] = useContext(CartContext)
 
+
+
+
+
     //funcion para agregar elementos
-    const addToCart = ({ id, title, subtitle, description, urlimg, categ }) => {
+    const addToCart = ({ id, title, subtitle, description, urlimg, categ, suburlmimg }) => {
         //representa cantidad de elementos en el estado _ inicial de productos
         setCart((currItems) => {
             // verficar si se encunetra
@@ -27,7 +32,7 @@ export default function Add() {
                 });
             } else {
                 // si es la primera ves se agrega al carrito
-                return [...currItems, { id, quantity: 1, subtitle, title, urlimg, categ }];
+                return [...currItems, { id, quantity: 1, subtitle, title, urlimg, categ, suburlmimg }];
             }
         });
     };
@@ -89,19 +94,6 @@ export default function Add() {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     const add_product = ({ id, title, subtitle, description, urlimg, categ }) => {
         setadds(true)
         try {
@@ -122,6 +114,16 @@ export default function Add() {
 
     }
 
+    const [filter, setFilter] = useState(''); // Estado para el filtro
+
+
+    const { imgjson } = Catalogo()
+    const see_info = (id) => {        
+        //const filteredData = imgjson.filter(item => item.id === id)
+        return imgjson.filter(item => item.id === id)
+        //console.log(filteredData);        
+    }
+
     useEffect(() => {
         // Cargar los datos guardados del localStorage al montar el componente
         const savedData = JSON.parse(localStorage.getItem('v')) || [];
@@ -133,10 +135,6 @@ export default function Add() {
         localStorage.setItem('v', JSON.stringify(addbuy));
     }, [addbuy]);
 
-
-
-
-
     return {
         add_product,
         adds,
@@ -144,7 +142,7 @@ export default function Add() {
         addToCart,
         removeItem,
         quantity,
-        cart, setCart, totalcosto, views_product,
+        cart, setCart, totalcosto, views_product, see_info
 
     }
 

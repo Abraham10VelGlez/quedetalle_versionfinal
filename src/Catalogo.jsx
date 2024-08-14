@@ -5,14 +5,14 @@ export default function Catalogo() {
         title: "tipodeplayera",
         subtitle: 200,
         description: "infomracion del producto",
-        urlimg: "./playera.jpg",
+        urlimg: "playera.jpg",
         categ: 'pl'
     }, {
         id: 2,
         title: "tipodeplayera",
         subtitle: 200,
         description: "infomracion del producto",
-        urlimg: "./playera2.jpg",
+        urlimg: "playera2.jpg",
         categ: 'pl'
     },
     {
@@ -20,7 +20,7 @@ export default function Catalogo() {
         title: "tipodeplayera",
         subtitle: 200,
         description: "infomracion del producto",
-        urlimg: "./playera3.jpg",
+        urlimg: "playera3.jpg",
         categ: 'pl'
 
     },
@@ -29,7 +29,7 @@ export default function Catalogo() {
         title: "tipodeplayera",
         subtitle: 200,
         description: "infomracion del producto",
-        urlimg: "./playera4.jpg",
+        urlimg: "playera4.jpg",
         categ: 'pl'
     },
     {
@@ -37,21 +37,25 @@ export default function Catalogo() {
         title: "tipodeplayera",
         subtitle: 200,
         description: "infomracion del producto",
-        urlimg: "./caja_carton.jpg",
-        categ: 'cj'
+        urlimg: "42_20240812_174930_0000.png",
+        categ: 'cj',
+        suburlmimg: {
+            urlimgsub1: "43_20240812_174930_0001.png",
+            urlimgsub2: "43_20240812_174930_0002.png",
+        },
     }, {
         id: 6,
         title: "tipodeplayera",
         subtitle: 200,
         description: "infomracion del producto",
-        urlimg: "./prueba2.png",
+        urlimg: "prueba2.png",
         categ: 'cj'
     }, {
         id: 7,
         title: "tipodeplayera",
         subtitle: 200,
         description: "infomracion del producto",
-        urlimg: "./prueba1.png",
+        urlimg: "prueba1.png",
         categ: 'cj'
     },
     {
@@ -59,7 +63,7 @@ export default function Catalogo() {
         title: "tipodeplayera",
         subtitle: 200,
         description: "infomracion del producto",
-        urlimg: "./caja1.jpg",
+        urlimg: "caja1.jpg",
         categ: 'cj'
     },
     {
@@ -67,7 +71,7 @@ export default function Catalogo() {
         title: "tipodeplayera",
         subtitle: 200,
         description: "infomracion del producto",
-        urlimg: "./taza.jpg",
+        urlimg: "taza.jpg",
         categ: 'tz'
     },
     {
@@ -75,21 +79,21 @@ export default function Catalogo() {
         title: "tipodeplayera",
         subtitle: 200,
         description: "infomracion del producto",
-        urlimg: "./taza2.jpg",
+        urlimg: "taza2.jpg",
         categ: 'tz'
     }, {
         id: 11,
         title: "tipodeplayera",
         subtitle: 200,
         description: "infomracion del producto",
-        urlimg: "./taza3.jpg",
+        urlimg: "taza3.jpg",
         categ: 'tz'
     }, {
         id: 12,
         title: "tipodeplayera",
         subtitle: 200,
         description: "infomracion del producto",
-        urlimg: "./termo.jpg",
+        urlimg: "termo.jpg",
         categ: 'tm'
     },
     {
@@ -97,14 +101,14 @@ export default function Catalogo() {
         title: "tipodeplayera",
         subtitle: 200,
         description: "infomracion del producto",
-        urlimg: "./termo2.jpg",
+        urlimg: "termo2.jpg",
         categ: 'tm'
     }, {
         id: 14,
         title: "tipodeplayera",
         subtitle: 200,
         description: "infomracion del producto",
-        urlimg: "./termo3.jpg",
+        urlimg: "termo3.jpg",
         categ: 'tm'
     },]
 

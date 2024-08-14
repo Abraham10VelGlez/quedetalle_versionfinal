@@ -18,23 +18,23 @@ import Add from './Add';
 export default function Basket() {
 
     const { quantity, cart, setCart, totalcosto, removeItem } = Add();
-
+        
     const { imgjson } = Catalogo()
 
     const [data, setData] = useState([]);
     useEffect(() => {
-        const storedData = localStorage.getItem('v');
+        /*const storedData = localStorage.getItem('v');
 
         if (storedData) {
-            //console.log(storedData);
+            console.log(storedData);
             setData(JSON.parse(storedData));
-        }
+        }*/
 
     }, [])
 
 
     // Función para filtrar productos agregados basado en lista de productos
-    const filterData = (imgjson, data) => {
+    /*const filterData = (imgjson, data) => {
         // Crear un conjunto de ids de data2 para una búsqueda más rápida
         const ids = new Set(imgjson.map(item => item.id));
 
@@ -46,6 +46,9 @@ export default function Basket() {
     };
 
     const filteredData = filterData(data, imgjson);
+    */
+
+
     //console.log(filteredData);
 
 
