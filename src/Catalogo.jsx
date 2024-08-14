@@ -39,10 +39,9 @@ export default function Catalogo() {
         description: "infomracion del producto",
         urlimg: "42_20240812_174930_0000.png",
         categ: 'cj',
-        suburlmimg: {
-            urlimgsub1: "43_20240812_174930_0001.png",
-            urlimgsub2: "43_20240812_174930_0002.png",
-        },
+        suburlmimg: [{ "urlimgsub": "42_20240812_174930_0000.png" },
+        { "urlimgsub": "43_20240812_174930_0001.png" },
+        { "urlimgsub": "44_20240812_174930_0002.png" },],
     }, {
         id: 6,
         title: "tipodeplayera",

@@ -10,16 +10,16 @@ export default function Combo() {
 
     const [selectedOptions, setSelectedOptions] = useState([]);
 
-    /*const handleCheckboxChange = (values) => {
+    const handleCheckboxChange = (values) => {
         setSelectedOptions(values);
         console.log(values);
 
-    };*/
+    };
 
     return (
 
         <center>
-            <CheckboxGroup value={selectedOptions} >
+            <CheckboxGroup value={selectedOptions} onChange={handleCheckboxChange} >
                 <Stack pl={2} mt={3} spacing={4}>
 
                     <Checkbox

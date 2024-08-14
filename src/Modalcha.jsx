@@ -3,6 +3,7 @@ import { useDisclosure, Link, Modal, Button, ModalOverlay, ModalContent, ModalHe
 import { Image, useBreakpointValue } from '@chakra-ui/react'
 import Galeria from './Galeria';
 import { Skeleton, SkeletonCircle, SkeletonText } from '@chakra-ui/react'
+import CarruselPrime from './Caruselprime';
 
 
 export default function Modalcha({ id, categ, urlimg, suburlmimg }) {
@@ -24,7 +25,7 @@ export default function Modalcha({ id, categ, urlimg, suburlmimg }) {
     //const sizes_modal = useBreakpointValue({ xs: 'xs', sm: 'sm', md: '300px', lg: '300px', xl: 'xl', full: 'full' });
 
     //const sizes_modal = ['xs', 'sm', 'md', 'lg', 'xl']
-    const sizes_modal = ['xl']
+    const sizes_modal = ['5px']
     ///const clikeo = () => { see_info(id), onOpen() }
 
 
@@ -48,12 +49,13 @@ export default function Modalcha({ id, categ, urlimg, suburlmimg }) {
                     <ModalHeader>Más Información</ModalHeader>
                     <ModalCloseButton />
                     <ModalBody>
-                        <Box padding='6' boxShadow='lg' bg='white'>
+                        <Box padding='1' boxShadow='xl' bg='white'>
                             {/*<SkeletonCircle size='10' />
                             <SkeletonText mt='4' noOfLines={4} spacing='4' skeletonHeight='2' />
                             <Galeria></Galeria>
-                            */}
                             <Galeria id={id}></Galeria>
+                            */}
+                            <CarruselPrime id={id} categ={categ}></CarruselPrime>
 
 
 

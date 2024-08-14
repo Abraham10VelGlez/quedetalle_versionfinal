@@ -48,22 +48,17 @@ export default function Galeria({ id }) {
     }
 
     const thumbnailTemplate = (item) => {
-        //console.log(item.suburlmimg);
-        //const categoria = item.categ
-        //console.log(categoria);
-        return <img src={item.categ + '/' + item.suburlmimg.urlimgsub2} alt={item.suburlmimg.urlimgsub2} />
-        /*return (
-            <>
-                {
-                    item.suburlmimg.map((itemsub, index) => (
-                        <img src={itemsub.categ + '/' + itemsub.suburlmimg} alt={itemsub.urlimg} />
-                        //console.log(itemsub.suburlmimg)
-                    ))
-                }
-            </>
-        )*/
 
-        //return <img src={categ + '/' + "asdasd"} alt={categ} />
+
+        //return <img src={item.categ + '/' + item.suburlmimg.urlimgsub2} alt={item.suburlmimg.urlimgsub2} />
+
+        if (item.suburlmimg && typeof item.suburlmimg === 'object') {
+            return Object.values(item.suburlmimg).map((subImg, index) => (
+                <img key={index} src={item.categ + '/' + subImg} alt={subImg} />
+            ));
+        } else {
+            return <p>Imagenes no validas</p>;
+        }
     }
 
 
@@ -71,9 +66,9 @@ export default function Galeria({ id }) {
     return (
         <div className="card">
             <Galleria value={images} responsiveOptions={responsiveOptions} numVisible={5} style={{ maxWidth: '640px' }}
-                item={itemTemplate} 
+                item={itemTemplate}
                 thumbnail={thumbnailTemplate} />
-            
+
         </div>
     )
 }

@@ -5,8 +5,8 @@ import { Carousel } from 'primereact/carousel';
 import { Tag } from 'primereact/tag';
 import { ProductService } from './ProductService';
 import { Image } from 'primereact/image';
-export default function CarruselPrime() {
-    const [products, setProducts] = useState([]);
+import Add from './Add';
+export default function CarruselPrime({ id, categ }) {
     const responsiveOptions = [
         {
             breakpoint: '1200px',
@@ -29,113 +29,69 @@ export default function CarruselPrime() {
             numScroll: 1
         }
     ];
-    const imgjson = [{
-        title: "tipodeplayera",
-        subtitle: "stilo",
-        description: "infomracion del producto",
-        urlimg: "./taza3.jpg"
-    }, {
-        title: "tipodeplayera",
-        subtitle: "stilo",
-        description: "infomracion del producto",
-        urlimg: "./termo3.jpg"
-    },
-    {
-        title: "tipodeplayera",
-        subtitle: "stilo",
-        description: "infomracion del producto",
-        urlimg: "./taza.jpg"
-    },
-    {
-        title: "tipodeplayera",
-        subtitle: "stilo",
-        description: "infomracion del producto",
-        urlimg: "./playera.jpg"
-    },
-    {
-        title: "tipodeplayera",
-        subtitle: "stilo",
-        description: "infomracion del producto",
-        urlimg: "./playera2.jpg"
-    }, {
-        title: "tipodeplayera",
-        subtitle: "stilo",
-        description: "infomracion del producto",
-        urlimg: "./playera3.jpg"
-    }, {
-        title: "tipodeplayera",
-        subtitle: "stilo",
-        description: "infomracion del producto",
-        urlimg: "./playera2.jpg"
-    },
-    {
-        title: "tipodeplayera",
-        subtitle: "stilo",
-        description: "infomracion del producto",
-        urlimg: "./playera.jpg"
-    },
-    {
-        title: "tipodeplayera",
-        subtitle: "stilo",
-        description: "infomracion del producto",
-        urlimg: "./playera.jpg"
-    },
-    {
-        title: "tipodeplayera",
-        subtitle: "stilo",
-        description: "infomracion del producto",
-        urlimg: "./playera2.jpg"
-    }, {
-        title: "tipodeplayera",
-        subtitle: "stilo",
-        description: "infomracion del producto",
-        urlimg: "./playera3.jpg"
-    },]
 
-    const getSeverity = (product) => {
-        switch (product.inventoryStatus) {
-            case 'INSTOCK':
-                return 'success';
+    /*const imgjson = [
+        { "urlimgsub": "43_20240812_174930_0001.png" },
+        { "urlimgsub": "44_20240812_174930_0002.png" },
+        { "urlimgsub": "43_20240812_174930_0001.png" },
+        { "urlimgsub": "44_20240812_174930_0002.png" },
+        { "urlimgsub": "43_20240812_174930_0001.png" }
+    ]*/
 
-            case 'LOWSTOCK':
-                return 'warning';
-
-            case 'OUTOFSTOCK':
-                return 'danger';
-
-            default:
-                return null;
-        }
-    };
+    const [images, setImages] = useState(null);
+    const [submages, setsuBmages] = useState([]);
+    const { see_info } = Add()
 
     useEffect(() => {
         //ProductService.getProductsSmall().then((data) => setProducts(data.slice(0, 9)));
-        setProducts(imgjson.slice(0, 9))
+        //setProducts(imgjson.slice(0, 9))
+        setImages(see_info(id));
+
+
+
     }, []);
 
-    const productTemplate = (product) => {
+
+    useEffect(() => {
+        // Procesar imágenes cuando se cargan
+        const efecto = () => {
+            if (images) {
+                const jsonString = JSON.stringify(images[0].suburlmimg);// Convierte a string JSON               
+                setsuBmages(JSON.parse(jsonString));
+                //console.log(objt);
+            }
+        }
+        efecto()
+
+    }, [images]);
+
+
+    const productTemplate = (submages) => {
+        //console.log(submages);
+        //console.log();
+
+
         const icon = (<i className="pi pi-search"></i>)
         return (
             <div className="border-1 surface-border border-round m-2 text-center py-5 px-3">
                 <div className="mb-3">
                     <div className="card flex justify-content-center">
-                        <Image src={product.urlimg} indicatorIcon={icon} alt="Image" height='400' width="300" />
+                        <Image src={categ + '/' + submages.urlimgsub} indicatorIcon={icon} alt="Space Quedetalle" height='400' width="300" />
                     </div>
                 </div>
-                <div>
-                    <h4 className="mb-1">{product.title}</h4>
-                    <h6 className="mt-0 mb-3">${product.description}</h6>
+                {/*<div>
+
                     <div className="mt-5 flex flex-wrap gap-2 justify-content-center">
-                        <Button className='bntcc' > Añadir </Button>
+                        <Button  > Siguiente </Button>
                     </div>
-                </div>
+                </div>*/}
             </div>
         );
     };
 
     return (
         <div className="card">
-            <Carousel value={products} numVisible={3} numScroll={3} responsiveOptions={responsiveOptions} className="custom-carousel" circular
+            <Carousel value={submages} numVisible={3} numScroll={3} responsiveOptions={responsiveOptions} className="custom-carousel" circular
                 autoplayInterval={3000} itemTemplate={productTemplate} />
 
         </div>
