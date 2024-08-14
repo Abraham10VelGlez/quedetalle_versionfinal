@@ -1,6 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Stack, CheckboxGroup, Checkbox } from '@chakra-ui/react'
+import { CartContext } from './context/ShoppingCartContext';
+import Catalogo from './Catalogo';
 export default function Combo() {
+
+
+    //acceso al context
+    const [jsonproducto, setJsonproducto] = useContext(CartContext)
+
+    const { imgjson } = Catalogo()
 
     const [checkedItems, setCheckedItems] = React.useState([false, false])
 
@@ -11,8 +19,13 @@ export default function Combo() {
     const [selectedOptions, setSelectedOptions] = useState([]);
 
     const handleCheckboxChange = (values) => {
+        //actualiza el estado de seleccion del boton
         setSelectedOptions(values);
-        console.log(values);
+        //console.log(values[0]);                
+        // Usando filter() para encontrar todos los elementos
+        const filteredItems = imgjson.filter((item) => item.categ === values[0]);
+        //console.log(filteredItems); // Imprime todos los elementos que cumplen con la condición
+        setJsonproducto(filteredItems)
 
     };
 
@@ -23,6 +36,7 @@ export default function Combo() {
                 <Stack pl={2} mt={3} spacing={4}>
 
                     <Checkbox
+                        value="all"
                         isChecked={allChecked}
                         isIndeterminate={isIndeterminate}
                         onChange={(e) => setCheckedItems([e.target.checked, e.target.checked])}

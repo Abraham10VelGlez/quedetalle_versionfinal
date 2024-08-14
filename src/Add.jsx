@@ -79,9 +79,9 @@ export default function Add() {
 
     const views_product = ({ id, title, subtitle, description, urlimg, categ }) => {
         setCart((currItems) => {
-            // verficar si se encunetra
+            // verficar si se encunetra el primer elemento
             const isItemsFound = currItems.find((item) => item.id === id);
-            console.log(isItemsFound);
+            //console.log(isItemsFound);
 
             if (isItemsFound) {
                 // se intera

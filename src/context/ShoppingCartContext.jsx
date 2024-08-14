@@ -7,8 +7,11 @@ export const ShoppingCartProvider = ({ children }) => {
   // para mantener los prodoctos usar esete estaddo
   const [cart, setCart] = useState([]);
 
+  //actualizar combo x producto
+  const [jsonproducto, setJsonproducto] = useState([])
+
   return (
-    <CartContext.Provider value={[cart, setCart]}>
+    <CartContext.Provider value={[cart, setCart, jsonproducto, setJsonproducto]}>
       {children}
     </CartContext.Provider>
   );

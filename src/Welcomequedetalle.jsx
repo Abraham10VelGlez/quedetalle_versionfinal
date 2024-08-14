@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import 'primeicons/primeicons.css'; //icons
 import 'primeflex/primeflex.css'; // flex
 import { Grid, GridItem } from '@chakra-ui/react'
@@ -12,9 +12,19 @@ import Combo from './Combo';
 import Theme from './Theme';
 import { useNavigate } from 'react-router-dom';
 import Floatmenucar from './Floatmenucar';
+import { CartContext } from './context/ShoppingCartContext';
+import Cardsprimeselect from './Cardsprimeselect';
 export default function Welcome() {
     const navigate = useNavigate();
     const linkpark = () => { navigate('/cotizavg') }
+
+    const [jsonproducto, setJsonproducto] = useContext(CartContext)
+    //console.log(jsonproducto);
+
+    /*if (jsonproducto.length > 0) {
+        console.log(jsonproducto);
+    }*/
+
 
     return (
         <>
@@ -75,7 +85,10 @@ export default function Welcome() {
 
                 </GridItem>*/}
                 <GridItem pl='2' bg='white.100' area={'main'}>
-                    <Cardsprime />
+                    {/*<Cardsprime /> */}
+                    {
+                        jsonproducto.length > 0 ? <Cardsprimeselect></Cardsprimeselect> : <Cardsprime />
+                    }
                 </GridItem>
                 <GridItem pl='2' bg='white.100' area={'footer'}>
                     <br></br>

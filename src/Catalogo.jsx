@@ -6,14 +6,20 @@ export default function Catalogo() {
         subtitle: 200,
         description: "infomracion del producto",
         urlimg: "playera.jpg",
-        categ: 'pl'
+        categ: 'pl',
+        suburlmimg: [{ "urlimgsub": "playera.jpg" },
+        { "urlimgsub": "playera.jpg" },
+        { "urlimgsub": "playera.jpg" },],
     }, {
         id: 2,
         title: "tipodeplayera",
         subtitle: 200,
         description: "infomracion del producto",
         urlimg: "playera2.jpg",
-        categ: 'pl'
+        categ: 'pl',
+        suburlmimg: [{ "urlimgsub": "playera.jpg" },
+        { "urlimgsub": "playera.jpg" },
+        { "urlimgsub": "playera.jpg" },],
     },
     {
         id: 3,
@@ -21,7 +27,10 @@ export default function Catalogo() {
         subtitle: 200,
         description: "infomracion del producto",
         urlimg: "playera3.jpg",
-        categ: 'pl'
+        categ: 'pl',
+        suburlmimg: [{ "urlimgsub": "playera.jpg" },
+        { "urlimgsub": "playera.jpg" },
+        { "urlimgsub": "playera.jpg" },],
 
     },
     {
@@ -30,7 +39,10 @@ export default function Catalogo() {
         subtitle: 200,
         description: "infomracion del producto",
         urlimg: "playera4.jpg",
-        categ: 'pl'
+        categ: 'pl',
+        suburlmimg: [{ "urlimgsub": "playera.jpg" },
+        { "urlimgsub": "playera.jpg" },
+        { "urlimgsub": "playera.jpg" },],
     },
     {
         id: 5,
@@ -48,14 +60,20 @@ export default function Catalogo() {
         subtitle: 200,
         description: "infomracion del producto",
         urlimg: "prueba2.png",
-        categ: 'cj'
+        categ: 'cj',
+        suburlmimg: [{ "urlimgsub": "42_20240812_174930_0000.png" },
+        { "urlimgsub": "43_20240812_174930_0001.png" },
+        { "urlimgsub": "44_20240812_174930_0002.png" },],
     }, {
         id: 7,
         title: "tipodeplayera",
         subtitle: 200,
         description: "infomracion del producto",
         urlimg: "prueba1.png",
-        categ: 'cj'
+        categ: 'cj',
+        suburlmimg: [{ "urlimgsub": "42_20240812_174930_0000.png" },
+        { "urlimgsub": "43_20240812_174930_0001.png" },
+        { "urlimgsub": "44_20240812_174930_0002.png" },],
     },
     {
         id: 8,
@@ -63,7 +81,10 @@ export default function Catalogo() {
         subtitle: 200,
         description: "infomracion del producto",
         urlimg: "caja1.jpg",
-        categ: 'cj'
+        categ: 'cj',
+        suburlmimg: [{ "urlimgsub": "42_20240812_174930_0000.png" },
+        { "urlimgsub": "43_20240812_174930_0001.png" },
+        { "urlimgsub": "44_20240812_174930_0002.png" },],
     },
     {
         id: 9,
@@ -71,7 +92,10 @@ export default function Catalogo() {
         subtitle: 200,
         description: "infomracion del producto",
         urlimg: "taza.jpg",
-        categ: 'tz'
+        categ: 'tz',
+        suburlmimg: [{ "urlimgsub": "taza.jpg" },
+        { "urlimgsub": "taza.jpg" },
+        { "urlimgsub": "taza.jpg" },],
     },
     {
         id: 10,
@@ -79,21 +103,30 @@ export default function Catalogo() {
         subtitle: 200,
         description: "infomracion del producto",
         urlimg: "taza2.jpg",
-        categ: 'tz'
+        categ: 'tz',
+        suburlmimg: [{ "urlimgsub": "taza.jpg" },
+        { "urlimgsub": "taza.jpg" },
+        { "urlimgsub": "taza.jpg" },],
     }, {
         id: 11,
         title: "tipodeplayera",
         subtitle: 200,
         description: "infomracion del producto",
         urlimg: "taza3.jpg",
-        categ: 'tz'
+        categ: 'tz',
+        suburlmimg: [{ "urlimgsub": "taza.jpg" },
+        { "urlimgsub": "taza.jpg" },
+        { "urlimgsub": "taza.jpg" },],
     }, {
         id: 12,
         title: "tipodeplayera",
         subtitle: 200,
         description: "infomracion del producto",
         urlimg: "termo.jpg",
-        categ: 'tm'
+        categ: 'tm',
+        suburlmimg: [{ "urlimgsub": "termo.jpg" },
+        { "urlimgsub": "termo.jpg" },
+        { "urlimgsub": "termo.jpg" },],
     },
     {
         id: 13,
@@ -101,14 +134,20 @@ export default function Catalogo() {
         subtitle: 200,
         description: "infomracion del producto",
         urlimg: "termo2.jpg",
-        categ: 'tm'
+        categ: 'tm',
+        suburlmimg: [{ "urlimgsub": "termo.jpg" },
+        { "urlimgsub": "termo.jpg" },
+        { "urlimgsub": "termo.jpg" },],
     }, {
         id: 14,
         title: "tipodeplayera",
         subtitle: 200,
         description: "infomracion del producto",
         urlimg: "termo3.jpg",
-        categ: 'tm'
+        categ: 'tm',
+        suburlmimg: [{ "urlimgsub": "termo.jpg" },
+        { "urlimgsub": "termo.jpg" },
+        { "urlimgsub": "termo.jpg" },],
     },]
 
     return {
