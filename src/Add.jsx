@@ -8,7 +8,7 @@ export default function Add() {
 
 
     //acceso al context
-    const [cart, setCart] = useContext(CartContext)
+    const { cart, setCart, jsonproducto, setJsonproducto } = useContext(CartContext);
 
 
 

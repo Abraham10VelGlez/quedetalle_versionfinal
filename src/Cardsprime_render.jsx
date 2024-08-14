@@ -17,7 +17,7 @@ export default function Cardprime_optimo({ id, title, subtitle, description, url
 
 
     ///llamar a mo context para que veamos cuantos prdoctos agregue, es acceso directo
-    const [cart, setCart] = useContext(CartContext)
+    const { cart, setCart, jsonproducto, setJsonproducto } = useContext(CartContext);
     // funcion para saber cuantos elementos fueron seleccionados por producto
     const getquantityid = (id) => {
         return cart.find((item) => item.id === id)?.quantity || 0;

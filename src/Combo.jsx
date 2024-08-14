@@ -6,7 +6,7 @@ export default function Combo() {
 
 
     //acceso al context
-    const [jsonproducto, setJsonproducto] = useContext(CartContext)
+    const { cart, setCart, jsonproducto, setJsonproducto } = useContext(CartContext);
 
     const { imgjson } = Catalogo()
 

@@ -5,10 +5,12 @@ import Boxs from './Boxs';
 import CarruselPrime from './Caruselprime';
 import Byubasket from './Buybasket';
 import { ShoppingCartProvider } from './context/ShoppingCartContext';
+
 export default function Navigatetalle() {
 
     return (
         /*<Router>*/
+
         <ShoppingCartProvider>
             <Routes>
                 <Route path="/" index element={<Welcome />} />
@@ -18,6 +20,7 @@ export default function Navigatetalle() {
                 <Route path="*" element={<NotFound />} />
             </Routes>
         </ShoppingCartProvider>
+
         /*</Router>*/
     );
 }

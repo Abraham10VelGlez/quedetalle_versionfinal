@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useMemo } from 'react';
 import 'primeicons/primeicons.css'; //icons
 import 'primeflex/primeflex.css'; // flex
 import { Grid, GridItem } from '@chakra-ui/react'
@@ -18,12 +18,11 @@ export default function Welcome() {
     const navigate = useNavigate();
     const linkpark = () => { navigate('/cotizavg') }
 
-    const [jsonproducto, setJsonproducto] = useContext(CartContext)
-    //console.log(jsonproducto);
-
-    /*if (jsonproducto.length > 0) {
-        console.log(jsonproducto);
-    }*/
+    const { cart, setCart, jsonproducto, setJsonproducto } = useContext(CartContext);
+    // el uso de useMemo sirve para memorizar el componente o los cálculos necesarios para renderizarlo.
+    const memoizedCardsComponent = useMemo(() => {
+        return jsonproducto.length > 0 ? <Cardsprimeselect /> : <Cardsprime />;
+    }, [jsonproducto]);
 
 
     return (
@@ -86,8 +85,11 @@ export default function Welcome() {
                 </GridItem>*/}
                 <GridItem pl='2' bg='white.100' area={'main'}>
                     {/*<Cardsprime /> */}
+
                     {
-                        jsonproducto.length > 0 ? <Cardsprimeselect></Cardsprimeselect> : <Cardsprime />
+                        memoizedCardsComponent
+                        //jsonproducto.length > 0 ? <Cardsprimeselect></Cardsprimeselect> : <Cardsprime />
+
                     }
                 </GridItem>
                 <GridItem pl='2' bg='white.100' area={'footer'}>

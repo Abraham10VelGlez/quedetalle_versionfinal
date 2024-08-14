@@ -8,7 +8,7 @@ import { CartContext } from './context/ShoppingCartContext';
 export default function Cardsprimeselect() {
     //const { imgjson } = Catalogo()
 
-    const [jsonproducto, setJsonproducto] = useContext(CartContext)    
+    const { cart, setCart, jsonproducto, setJsonproducto } = useContext(CartContext)
 
     return (
         <>
